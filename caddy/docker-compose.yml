@@ -1,0 +1,13 @@
+version: '3'
+services:
+  caddy:
+    image: caddy
+    container_name: caddy
+    volumes:
+      - ./data/conf:/etc/caddy
+      - ./data/site:/usr/share/caddy
+    network_mode: host
+    ports:
+      - 80:80
+      - 443:443
+    restart: always

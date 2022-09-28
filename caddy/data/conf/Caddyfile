@@ -1,0 +1,18 @@
+example.com {
+  encode gzip zstd
+  tls /etc/caddy/tls/www.pem /etc/caddy/tls/www.key
+  redir https://www.example.com/{uri}
+}
+
+www.example.com {
+  encode gzip zstd
+  tls /etc/caddy/tls/www.pem /etc/caddy/tls/www.key
+  reverse_proxy 127.0.0.1:8080
+}
+
+html.example.com {
+  encode gzip zstd
+  tls /etc/caddy/tls/html.cer /etc/caddy/tls/html.key
+  root * /usr/share/caddy/html.example.com
+  file_server
+}

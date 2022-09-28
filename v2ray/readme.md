@@ -1,0 +1,1 @@
+### data 目录下 `config.json` 为 v2ray 配置文件, 可通过 V2rayN 导出
